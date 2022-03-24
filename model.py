@@ -105,7 +105,6 @@ class PHOLID(nn.Module):
                                          nn.ReLU(),
                                          nn.BatchNorm1d(512, momentum=0.1))
         self.phoneme_proj = nn.Linear(512, 64)
-        self.layernorm1 = LayerNorm(feat_dim)
         self.pos_encoding = PositionalEncoding(max_seq_len=max_seq_len, features_dim=feat_dim)
         self.layernorm2 = LayerNorm(feat_dim)
         self.fc_xv = nn.Linear(1024, feat_dim)
