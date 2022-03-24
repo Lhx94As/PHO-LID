@@ -5,7 +5,6 @@ from ssl_sampler import *
 from model import *
 from data_load import *
 import torch.nn as nn
-import time
 
 
 def setup_seed(seed):
