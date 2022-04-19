@@ -124,16 +124,9 @@ def main():
         test_txt = None
 
     loss_func_lid = nn.CrossEntropyLoss().to(device)
-    if config_proj["optim_config"]["phn_ssl"] == "seg":
-        num_nega_samples = config_proj["optim_config"]["nega_frames"]
-        print("Compute phoneme SSL over segments with {} negative samples".format(num_nega_samples))
-        loss_func_phn = Phoneme_SSL_loss(num_frames=20, num_sample=num_nega_samples).to(device)
-    elif config_proj["optim_config"]["phn_ssl"] == "utt":
-        num_nega_samples = config_proj["optim_config"]["nega_frames"]
-        print("Compute phoneme SSL over utterances with {} negative samples".format(num_nega_samples))
-        loss_func_phn = Phoneme_SSL_utt_loss(num_sample=num_nega_samples).to(device)
-    else:
-        raise ValueError("The phn_ssl should be either 'seg' or 'utt' ")
+    num_nega_samples = config_proj["optim_config"]["nega_frames"]
+    print("Compute phoneme SSL over segments with {} negative samples".format(num_nega_samples))
+    loss_func_phn = Phoneme_SSL_loss(num_frames=20, num_sample=num_nega_samples).to(device)
     total_step = len(train_data)
     total_epochs = config_proj["optim_config"]["epochs"]
     valid_epochs = config_proj["optim_config"]["valid_epochs"]
