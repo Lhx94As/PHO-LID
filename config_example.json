@@ -1,0 +1,46 @@
+{
+  "model_name": "pholid_sample3_seed66",
+  "Input": {
+    "userroot": "/home/hexin/",
+    "train": "/Desktop/hexin/dataset/train.txt",
+    "valid": "none",
+    "test":  "Desktop/hexin/dataset/test.txt",
+    "log": "/Desktop/hexin/dataset/log/",
+    "_comment": "Input your data dir here, each line: data_file_path lable_index segment_len"
+  },
+  "model_config": {
+    "model": "pholid",
+    "feat_dim": 1024,
+    "reduc_dim": 256,
+    "d_k": 64,
+    "d_ff": 2048,
+    "n_heads": 8,
+    "n_language": 10,
+    "_comment": "Model configurations, do not change unless you need to modify the model"
+  },
+  "optim_config": {
+    "learning_rate": 0.0001,
+    "epochs": 13,
+    "batch": 128,
+    "optimizer": "Adam",
+    "scheduler": "warmup_cosine",
+    "num_work": 4,
+    "device": 3,
+    "DDP": "False",
+    "SSL_epochs":3,
+    "warmup_step": -1,
+    "valid_epochs": 3,
+    "seed": 66,
+    "ptc_dist":"euclidean",
+    "margin":0.3,
+    "weight_lid":0.95,
+    "weight_pht":0.15,
+    "weight_ssl":0.05,
+    "phn_ssl":"seg",
+    "nega_frames":3,
+    "hard_sample_epochs":0,
+    "_comment": "warmup_step = -1 denotes default value, num_work is better to be your_cpu_cores/4"
+  },
+  "kaldi": "/Desktop/kaldi/"
+
+}
