@@ -61,24 +61,6 @@ def get_atten_mask_frame(seq_lens, batch_size):
         atten_mask[i, :length, :length] = 0
     return atten_mask.bool()
 
-def get_atten_mask_student(seq_lens, batch_size, mask_type='fix', win_len=15):
-  max_len = seq_lens[0]
-  atten_mask = torch.ones([batch_size, max_len, max_len])
-  if mask_type == 'fix':
-    for i in range(batch_size):
-      atten_mask[i, 0:win_len, 0:win_len] = 0
-  elif mask_type == 'random':
-    for i in range(batch_size):
-      seq_len = seq_lens[i]
-      if seq_len>win_len:
-          rest_len = seq_len - win_len
-          start = random.randint(0, rest_len)
-          end = start + win_len
-          atten_mask[i, start:end, start:end] = 0
-      else:
-          atten_mask[i, :seq_len, :seq_len] = 0
-  return atten_mask.bool()
-
 
 def std_mask(seq_lens, batchsize, dim):
     max_len = seq_lens[0]
@@ -97,22 +79,5 @@ def mean_mask(seq_lens, batchsize, dim):
         length = seq_lens[i]
         atten_mask[i, :length, :] = 0
     return atten_mask.bool(), weight_unbaised
-
-def layer_mask(seq_lens, batchsize, dim):
-    max_len = seq_lens[0]*20
-    atten_mask = torch.ones([batchsize, max_len, dim])
-    for i in range(batchsize):
-        length=seq_lens[i]
-        atten_mask[i, :length, :] = 0
-    return atten_mask.bool()
-
-def se_mask(seq_lens, batchsize):
-    max_len = seq_lens[0]
-    weight_unbaised = seq_lens[0] / torch.tensor(seq_lens)
-    atten_mask = torch.ones([batchsize, max_len*20])
-    for i in range(batchsize):
-        length=seq_lens[i]*20
-        atten_mask[i, :length] = 0
-    return atten_mask.bool()
 
 
