@@ -26,7 +26,7 @@
     "scheduler": "warmup_cosine",
     "num_work": 4,
     "device": 3,
-    "DDP": "False",
+    "DDP": False,
     "SSL_epochs":3,
     "warmup_step": -1,
     "valid_epochs": 3,
