@@ -8,7 +8,7 @@ An example to run it:
 python train_PHOLID.py --json /home/tony/PHOLID_config_file.json  
    
 The training data txt file should be look like:  
-data0_path.npy language_index0 T'_0  
+data0_path.npy(space)language_index0(space)T'_0  
 data1_path.npy language_index1 T'_1  
 data2_path.npy language_index2 T'_2  
 data3_path.npy language_index3 T'_3  
