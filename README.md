@@ -14,12 +14,12 @@ data2_path.npy language_index2 T'_2
 data3_path.npy language_index3 T'_3  
 Where the T'_0 is sequence length of the reshaped data from T x D to T' x 20 x D, 20 denotes 20 frames in each embedding. You may also prepare your own script and only use this model config.  
 
-If you find this paper useful, cite:
->@inproceedings{liu22e_interspeech,
-  author={Hexin Liu and Leibny Paola {Garcia Perera} and Andy Khong and Suzy Styles and Sanjeev Khudanpur},
-  title={{PHO-LID: A Unified Model Incorporating Acoustic-Phonetic and Phonotactic Information for Language Identification}},
-  year=2022,
-  booktitle={Proc. Interspeech 2022},
-  pages={2233--2237},
-  doi={10.21437/Interspeech.2022-354}
+If you find this paper useful, cite:  
+>@inproceedings{liu22e_interspeech,  
+  author={Hexin Liu and Leibny Paola {Garcia Perera} and Andy Khong and Suzy Styles and Sanjeev Khudanpur},  
+  title={{PHO-LID: A Unified Model Incorporating Acoustic-Phonetic and Phonotactic Information for Language Identification}},  
+  year=2022,  
+  booktitle={Proc. Interspeech 2022},  
+  pages={2233--2237},  
+  doi={10.21437/Interspeech.2022-354}  
 }
