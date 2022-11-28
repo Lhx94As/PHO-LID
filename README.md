@@ -13,7 +13,7 @@ data1_path.npy language_index1 T'_1
 data2_path.npy language_index2 T'_2  
 data3_path.npy language_index3 T'_3  
 
-Where the T'_0 is sequence length of the reshaped data from T x D to T' x 20 x D, 20 denotes 20 frames in each embedding. You may also prepare your own script and only use this model config.  
+Where the T'_0 is sequence length of the data reshaped from T x D to T' x 20 x D, 20 denotes 20 frames in each embedding. You may also prepare your own script and only use this model config.  
 
 If you find this paper useful, cite:  
 >@inproceedings{liu22e_interspeech,  
