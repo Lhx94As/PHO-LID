@@ -6,22 +6,6 @@ import torch.nn.init as init
 import torch.nn.functional as F
 
 
-class oldPositionalEncoding(nn.Module):
-    def __init__(self, max_seq_len, features_dim, device):
-        super(oldPositionalEncoding, self).__init__()
-        pos_enc = np.array(
-            [[pos/np.power(10000, 2.0*(i//2)/features_dim) for i in range(features_dim)]
-             for pos in range(max_seq_len)])
-        pos_enc[:,0::2] = np.sin(pos_enc[:,0::2])
-        pos_enc[:,1::2] = np.cos(pos_enc[:,1::2])
-        self.pos_enc = torch.from_numpy(pos_enc).to(device)
-
-    def forward(self, x, seq_len):
-        # x: [B, T, feat_dim]
-        for i in range(x.size(0)):
-            len_ = seq_len[i]
-            x[i,:len_,:] += self.pos_enc[:len_, :]
-        return x
 
 class PositionalEncoding(nn.Module):
     """
